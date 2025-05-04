@@ -6,13 +6,13 @@
 /*   By: jinzhang <jinzhang@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/03 10:18:09 by jinzhang          #+#    #+#             */
-/*   Updated: 2025/05/03 21:20:27 by jinzhang         ###   ########.fr       */
+/*   Updated: 2025/05/04 12:26:12 by jinzhang         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "printf.h"
 
-int	find_specs(char c, va_list ap)
+int	find_specs(char c, va_list ap)//try to pass va_list as pointer to see if it works ony my own laptop
 {
 	if (c == 'c' || c =='%')
 		return (ft_putchar(va_arg(ap, int)));//!!in variadic function, some types are automatically converted to larger types. char -> int, give id char might crash or get garbage value bcs it was stored in 4 bytes in memory as int, not 1 byte
