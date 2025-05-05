@@ -6,7 +6,7 @@
 /*   By: jinzhang <jinzhang@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/03 10:17:59 by jinzhang          #+#    #+#             */
-/*   Updated: 2025/05/05 22:29:43 by jinzhang         ###   ########.fr       */
+/*   Updated: 2025/05/06 00:31:08 by jinzhang         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,18 +65,11 @@ int ft_countuint(unsigned int u)
 	p = (unsigned long)u;
 	i = 0;
 	result = 0;
-	if (p < 0)
-	{
-		write (1, "-", 1);
-		i++;
-		p = -p;
-	}
 	if (p > 9)
-	{
 		i += ft_countuint(p / 10);
-	}
 	result = p % 10 + '0';
 	write(1, &result, 1);
 	i++;
 	return (i);
 }
+
