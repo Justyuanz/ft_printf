@@ -6,7 +6,7 @@
 /*   By: jinzhang <jinzhang@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/03 10:18:09 by jinzhang          #+#    #+#             */
-/*   Updated: 2025/05/04 12:26:12 by jinzhang         ###   ########.fr       */
+/*   Updated: 2025/05/05 16:55:43 by jinzhang         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,19 +15,22 @@
 int	find_specs(char c, va_list ap)//try to pass va_list as pointer to see if it works ony my own laptop
 {
 	if (c == 'c' || c =='%')
-		return (ft_putchar(va_arg(ap, int)));//!!in variadic function, some types are automatically converted to larger types. char -> int, give id char might crash or get garbage value bcs it was stored in 4 bytes in memory as int, not 1 byte
+		return (ft_countchar(va_arg(ap, int)));//!!in variadic function, some types are automatically converted to larger types. char -> int, give id char might crash or get garbage value bcs it was stored in 4 bytes in memory as int, not 1 byte
 	if (c == 's')
-		return (ft_putstr(va_arg(ap, char *)));
+		return (ft_countstr(va_arg(ap, char *)));
+	if (c == 'u')
+		return (ft_countuint(va_arg(ap, unsigned int)));
 	if (c == 'i' || c == 'd')
-		return (ft_putnbr(va_arg(ap, int)));
+		return (ft_countnbr(va_arg(ap, int)));
+	if (c == 'x' || c == 'X') // x or X prints and integer in Hex, It treats the number as unsigned
+		return (ft_counthex(va_arg(ap,unsigned int))); //??what type -> unsigned int
 	/*
-	if (c == 'x' || c == 'X', c) // x or X prints and integer in Hex, It treats the number as unsigned
-		return (ft_puthex(va_arg(ap,unsigned int))); //??what type -> unsigned int
 	if (c == 'p')
-		return (ft_putpointer(va_arg(ap, unsigned int))); //who are you, pointer? ->ok you are also unsigned int
+		return (ft_countpointer(va_arg(copy, unsigned int))); //who are you, pointer? ->ok you are also unsigned int
 	*/
 	return (0);
 }
+
 int	loop_str(const char *s, va_list ap)
 {
 	int	i;
@@ -66,9 +69,12 @@ int	ft_printf(const char *format, ...)
 int	main(void)
 {
 	char a = 'A';
-	char *b= "APPLE";
+	char *b= NULL;
 	int	c = 42;
 	int	d = -420;
+	int count = 0;
+	unsigned int e = 420;
 	//const char *fmt = "char: %c, string:%s, pointer: %%, decimal: %d, int:%i, unsigned decimal:%u,";// hex lower:%x, hex higher:%X, percent sign:%p";
-	ft_printf("char: %c, string:%s, decimal: %d, int:%i", a, b, c, d);
+	count = ft_printf("char:%c,string:%s,decimal:%d,int:%i,unsigned:%u", a, b, c, d, e);
+	__builtin_printf("\n%i", count);
 }

@@ -1,25 +1,15 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   printf.h                                           :+:      :+:    :+:   */
+/*   ft_hex.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jinzhang <jinzhang@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/05/03 10:17:46 by jinzhang          #+#    #+#             */
-/*   Updated: 2025/05/05 16:51:57 by jinzhang         ###   ########.fr       */
+/*   Created: 2025/05/05 16:58:24 by jinzhang          #+#    #+#             */
+/*   Updated: 2025/05/05 17:05:05 by jinzhang         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PRINTF_H
-# define PRINTF_H
+#include "printf.h"
 
-#include <stdarg.h>
-#include <unistd.h>
-#include <stdlib.h>
-
-int	ft_printf(const char *format, ...);
-int	ft_countchar(int a);
-int	ft_countstr(char * s);
-int	ft_countnbr(int n);
-int ft_countuint(unsigned int n);
-#endif
+int	ft_counthex()
