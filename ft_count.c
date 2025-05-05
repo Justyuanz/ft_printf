@@ -6,7 +6,7 @@
 /*   By: jinzhang <jinzhang@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/03 10:17:59 by jinzhang          #+#    #+#             */
-/*   Updated: 2025/05/05 16:54:45 by jinzhang         ###   ########.fr       */
+/*   Updated: 2025/05/05 22:29:43 by jinzhang         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,5 +80,3 @@ int ft_countuint(unsigned int u)
 	i++;
 	return (i);
 }
-//ft_counthex(va_arg(ap,unsigned int));
-//ft_countpointer(va_arg(ap, unsigned int));

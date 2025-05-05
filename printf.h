@@ -6,7 +6,7 @@
 /*   By: jinzhang <jinzhang@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/03 10:17:46 by jinzhang          #+#    #+#             */
-/*   Updated: 2025/05/05 19:52:15 by jinzhang         ###   ########.fr       */
+/*   Updated: 2025/05/05 22:23:26 by jinzhang         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,5 +22,7 @@ int	ft_countchar(int a);
 int	ft_countstr(char * s);
 int	ft_countnbr(int n);
 int ft_countuint(unsigned int n);
-int	ft_counthex(unsigned int hex, char c);
+int	ft_counthex(unsigned int hex);
+int	ft_counthexup(unsigned int hex);
+int	ft_countaddress(void *ptr);
 #endif

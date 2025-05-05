@@ -6,7 +6,7 @@
 /*   By: jinzhang <jinzhang@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/03 10:18:09 by jinzhang          #+#    #+#             */
-/*   Updated: 2025/05/05 19:53:22 by jinzhang         ###   ########.fr       */
+/*   Updated: 2025/05/05 22:22:58 by jinzhang         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,11 +23,9 @@ int	find_specs(char c, va_list ap)//try to pass va_list as pointer to see if it 
 	if (c == 'i' || c == 'd')
 		return (ft_countnbr(va_arg(ap, int)));
 	if (c == 'x' || c == 'X') // x or X prints and integer in Hex, It treats the number as unsigned
-		return (ft_counthex(va_arg(ap, unsigned int), c)); //??what type -> unsigned int
-	/*
+		return (ft_counthex(va_arg(ap, unsigned int))); //??what type -> unsigned int
 	if (c == 'p')
-		return (ft_countpointer(va_arg(copy, unsigned int))); //who are you, pointer? ->ok you are also unsigned int
-	*/
+		return (ft_countaddress(va_arg(ap, void *))); //who are you, pointer? ->ok you are also unsigned int
 	return (0);
 }
 
@@ -74,8 +72,9 @@ int	main(void)
 	int	d = -420;
 	int count = 0;
 	unsigned int e = 420;
-	unsigned int f = 675332;
+	unsigned int f = 67544;
+	unsigned int g = 67544;
 	//const char *fmt = "char: %c, string:%s, pointer: %%, decimal: %d, int:%i, unsigned decimal:%u,";// hex lower:%x, hex higher:%X, percent sign:%p";
-	count = ft_printf("char:%c,string:%s,decimal:%d,int:%i,unsigned:%u,hex::%x", a, b, c, d, e,f);
+	count = ft_printf("char:%c,string:%s,decimal:%d,int:%i,unsigned:%u,hex::%x,hexup:%X,pointer:%p", a, b, c, d, e,f,g,&g);
 	__builtin_printf("\n%i", count);
 }
