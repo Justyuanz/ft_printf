@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_count.c                                         :+:      :+:    :+:   */
+/*   ft_put.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jinzhang <jinzhang@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/03 10:17:59 by jinzhang          #+#    #+#             */
-/*   Updated: 2025/05/06 19:00:32 by jinzhang         ###   ########.fr       */
+/*   Updated: 2025/05/06 23:32:26 by jinzhang         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,7 @@
 
 int	ft_putchar(int a)
 {
-	write(1, &a, 1);
-	return (1);
+	return (write(1, &a, 1));
 }
 
 int	ft_putstr(char *s)
@@ -58,7 +57,7 @@ int	ft_putnbr(int n)
 }
 int ft_putuint(unsigned int u)
 {
-	unsigned int	i;
+	int	i;
 	unsigned long	p;
 	char result;
 
@@ -72,4 +71,5 @@ int ft_putuint(unsigned int u)
 	i++;
 	return (i);
 }
+
 

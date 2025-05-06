@@ -6,7 +6,7 @@
 /*   By: jinzhang <jinzhang@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/03 10:18:09 by jinzhang          #+#    #+#             */
-/*   Updated: 2025/05/06 21:51:49 by jinzhang         ###   ########.fr       */
+/*   Updated: 2025/05/06 23:58:23 by jinzhang         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,14 +51,11 @@ int	loop_str(const char *s, va_list *ap)
 		else
 		{
 			i++;
-			if(s[i] != '\0')
-				res = find_specs(s[i], ap);//call a function to deal with spec
-				if(res == -1)
-				{
-					write(1, "%" ,1);
-					count = count + 2;
-				}
-			count += res;
+			if(s[i] == '\0')
+				break;
+			res = find_specs(s[i], ap);//call a function to deal with spec
+			if(res != -1)
+				count += res;
 		}
 		i++;
 	}
@@ -88,8 +85,8 @@ int	main(void)
 	unsigned int f = 255;
 	unsigned int g = 27544355;
 
-	int count = ft_printf("[char:%c],[string:%s],[decimal:%d],[int:%i],[unsigned int:%u],[hex::%x],[hexup:%X],[pointer:%p],[%%:%%],[int_min:%i],[int_max:%i],[%%%z%%]\n", a, b, c, d, e,f,g,&g, INT_MIN, INT_MAX);
-	int count1 = printf("[char:%c],[string:%s],[decimal:%d],[int:%i],[unsigned int:%u],[hex::%x],[hexup:%X],[pointer:%p],[%%:%%],[int_min:%i],[int_max:%i],[%%%z%%]\n", a, b, c, d, e,f,g,&g, INT_MIN, INT_MAX);
+	int count = ft_printf("[char:%c],[string:%s],[decimal:%d],[int:%i],[unsigned int:%u],[hex::%x],[hexup:%X],[pointer:%p],[%%:%%],[int_min:%i],[int_max:%i],[%%%z%%]\n", a, b, c, d, e,f,g,b, INT_MIN, INT_MAX);
+	int count1 = printf("[char:%c],[string:%s],[decimal:%d],[int:%i],[unsigned int:%u],[hex::%x],[hexup:%X],[pointer:%p],[%%:%%],[int_min:%i],[int_max:%i],[%%%z%%]\n", a, b, c, d, e,f,g,b, INT_MIN, INT_MAX);
 	//ft_printf("Null str: %s | Invalid spec: %z | Percent: %% | Lone percent: %\n", NULL);
 	int null = printf("printf Null str: %s\n", NULL);
 	int null1 = ft_printf("printf Null str: %s\n", NULL);
@@ -101,12 +98,20 @@ int	main(void)
 	int lone1 = ft_printf("Lone percent: %\n");
 	int zero = ft_printf(NULL);
 	int zero1 = ft_printf(NULL);
-
+	int in = printf("%z", a);
+	
+	printf("\n");
+	int in1 = ft_printf("%z",a);
+	ft_printf("\n");
 	printf("\n");
 	printf("ft_printf:%d\n", count);
 	printf("printf:   %d\n", count1);
-	printf("[count:%d],[null:%d],[invalid:%d],[percent:%d],[lone:%d],[zero:%d]\n", count, null, z, per, lone, zero);
-	printf("[count:%d],[null:%d],[invalid:%d],[percent:%d],[lone:%d],[zero1:%d]\n", count1, null1, z1, per1, lone1, zero1);
-
-
+	printf("[count:%d],[null:%d],[invalid:%d],[percent:%d],[lone:%d],[zero:%d],[%%z:%i]\n", count, null, z, per, lone, zero, in1);
+	printf("[count:%d],[null:%d],[invalid:%d],[percent:%d],[lone:%d],[zero1:%d],[%%z:%i]\n", count1, null1, z1, per1, lone1, zero1, in1);
+	
+	ft_printf("Just percent: %%\n");          // should print: Just percent: %
+	ft_printf("Unknown: %k\n");               // should print: Unknown:
+	ft_printf("Pointer NULL: %p\n", NULL);    // should print: Pointer NULL: 0x0
+	ft_printf("Zero: %u %d\n", 0u, 0);        // should print: 0 0
+	ft_printf("Neg unsigned: %u\n", -1);      // should print: 4294967295
 }
