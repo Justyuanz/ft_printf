@@ -6,7 +6,7 @@
 /*   By: jinzhang <jinzhang@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/03 10:18:09 by jinzhang          #+#    #+#             */
-/*   Updated: 2025/05/06 21:40:07 by jinzhang         ###   ########.fr       */
+/*   Updated: 2025/05/06 21:51:49 by jinzhang         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -98,13 +98,15 @@ int	main(void)
 	int per = printf("Percent: %%\n");
 	int per1 = ft_printf("Percent: %%\n");
 	int lone = printf("Lone percent: %\n");
-	int lone1 = ft_printf("Lone percent: %\n");;
+	int lone1 = ft_printf("Lone percent: %\n");
+	int zero = ft_printf(NULL);
+	int zero1 = ft_printf(NULL);
 
 	printf("\n");
 	printf("ft_printf:%d\n", count);
 	printf("printf:   %d\n", count1);
-	printf("[count:%d],[null:%d],[invalid:%d],[percent:%d],[lone:%d]\n", count, null, z, per, lone);
-	printf("[count:%d],[null:%d],[invalid:%d],[percent:%d],[lone:%d]\n", count1, null1, z1, per1, lone1);
+	printf("[count:%d],[null:%d],[invalid:%d],[percent:%d],[lone:%d],[zero:%d]\n", count, null, z, per, lone, zero);
+	printf("[count:%d],[null:%d],[invalid:%d],[percent:%d],[lone:%d],[zero1:%d]\n", count1, null1, z1, per1, lone1, zero1);
 
 
 }
