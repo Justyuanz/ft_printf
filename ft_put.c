@@ -6,19 +6,19 @@
 /*   By: jinzhang <jinzhang@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/03 10:17:59 by jinzhang          #+#    #+#             */
-/*   Updated: 2025/05/06 00:31:08 by jinzhang         ###   ########.fr       */
+/*   Updated: 2025/05/06 19:00:32 by jinzhang         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "printf.h"
 
-int	ft_countchar(int a)
+int	ft_putchar(int a)
 {
 	write(1, &a, 1);
 	return (1);
 }
 
-int	ft_countstr(char *s)
+int	ft_putstr(char *s)
 {
 	int	i;
 
@@ -32,7 +32,7 @@ int	ft_countstr(char *s)
 	}
 	return (i);
 }
-int	ft_countnbr(int n)
+int	ft_putnbr(int n)
 {
 	int	i;
 	long	p;
@@ -49,14 +49,14 @@ int	ft_countnbr(int n)
 	}
 	if (p > 9)
 	{
-		i += ft_countnbr(p / 10); //calling ft_countnbr(p / 10); recursively — butnot using its return value, which means you're not counting the characters printed in the recursive calls.
+		i += ft_putnbr(p / 10); //calling ft_countnbr(p / 10); recursively — butnot using its return value, which means you're not counting the characters printed in the recursive calls.
 	}
 	result = p % 10 + '0';
 	write(1, &result, 1);
 	i++;
 	return (i);
 }
-int ft_countuint(unsigned int u)
+int ft_putuint(unsigned int u)
 {
 	unsigned int	i;
 	unsigned long	p;
@@ -66,7 +66,7 @@ int ft_countuint(unsigned int u)
 	i = 0;
 	result = 0;
 	if (p > 9)
-		i += ft_countuint(p / 10);
+		i += ft_putuint(p / 10);
 	result = p % 10 + '0';
 	write(1, &result, 1);
 	i++;

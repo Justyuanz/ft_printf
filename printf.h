@@ -6,7 +6,7 @@
 /*   By: jinzhang <jinzhang@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/03 10:17:46 by jinzhang          #+#    #+#             */
-/*   Updated: 2025/05/05 22:23:26 by jinzhang         ###   ########.fr       */
+/*   Updated: 2025/05/06 19:05:37 by jinzhang         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,11 +18,12 @@
 #include <stdlib.h>
 
 int	ft_printf(const char *format, ...);
-int	ft_countchar(int a);
-int	ft_countstr(char * s);
-int	ft_countnbr(int n);
-int ft_countuint(unsigned int n);
-int	ft_counthex(unsigned int hex);
-int	ft_counthexup(unsigned int hex);
-int	ft_countaddress(void *ptr);
+int	ft_putchar(int a);
+int	ft_putstr(char * s);
+int	ft_putnbr(int n);
+int ft_putuint(unsigned int n);
+int	ft_puthex(unsigned long hex);
+int	ft_puthexup(unsigned long hex);
+int	ft_putaddress(void *ptr);
+
 #endif
