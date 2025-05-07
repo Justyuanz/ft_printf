@@ -6,13 +6,14 @@
 #    By: jinzhang <jinzhang@student.hive.fi>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/04/17 10:55:26 by jinzhang          #+#    #+#              #
-#    Updated: 2025/04/29 14:35:32 by jinzhang         ###   ########.fr        #
+#    Updated: 2025/05/07 16:37:52 by jinzhang         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = libft.a
 COMPILER = cc
-COMPILERFLAGS = -Wall -Wextra -Werror
+CFLAGS = -Wall -Wextra -Werror
+HEADER = libft.h
 SRCS = ft_isalpha.c ft_isdigit.c ft_isalnum.c ft_isascii.c ft_isprint.c \
 		ft_strlen.c ft_memset.c ft_bzero.c ft_memcpy.c ft_memmove.c \
 		ft_strlcpy.c ft_strlcat.c ft_toupper.c ft_tolower.c ft_strchr.c \
@@ -28,8 +29,8 @@ BONUS_OBJS = $(BONUS_SRCS:%.c=%.o)
 
 all: $(NAME)
 
-%.o: %.c
-	$(COMPILER) $(COMPILERFLAGS) -c $< -o $@
+%.o: %.c $(HEADER)
+	$(COMPILER) $(CFLAGS) -c $< -o $@
 
 $(NAME): $(OBJS)
 	ar rcs $(NAME) $(OBJS)

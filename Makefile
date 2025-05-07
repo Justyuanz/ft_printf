@@ -6,29 +6,42 @@
 #    By: jinzhang <jinzhang@student.hive.fi>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/04/17 10:55:26 by jinzhang          #+#    #+#              #
-#    Updated: 2025/05/07 14:11:21 by jinzhang         ###   ########.fr        #
+#    Updated: 2025/05/07 19:13:43 by jinzhang         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = libftprintf.a
+NAME	= libftprintf.a
 COMPILER = cc
-COMPILERFLAGS = -Wall -Wextra -Werror
-SRCS = ft_prinft.c ft_put.c ft_basenbr.c
+CFLAGS = -Wall -Wextra -Werror
+AR = ar rcs
+RM = rm -f
+
+HEADER = printf.h
+LIBFT_DIR = libft
+LIBFT_A = $(LIBFT_DIR)/libft.a
+SRCS = ft_printf.c ft_put.c ft_basenbr.c
+OBJS = $(SRCS:.c=.o)
 
 all: $(NAME)
 
-%.o: %.c
-	$(COMPILER) $(COMPILERFLAGS) -c $< -o $@
+$(LIBFT_A):
+	make -C $(LIBFT_DIR)
+	
+$(NAME): $(OBJS) $(LIBFT_A)
+	cp $(LIBFT_A) $(NAME)
+	$(AR) $(NAME) $(OBJS)
 
-$(NAME): $(OBJS)
-	ar rcs $(NAME) $(OBJS)
+%.o: %.c $(HEADER)
+	$(COMPILER) $(CFLAGS) -c $< -o $@
 
 clean:
-	rm -f $(OBJS)
+	$(RM) $(OBJS)
+	make clean -C $(LIBFT_DIR)
 
 fclean: clean
-	rm -f $(NAME) 
-
+	$(RM) $(NAME) 
+	make fclean -C $(LIBFT_DIR)
+	
 re: fclean all
 
 .PHONY: all clean fclean re 

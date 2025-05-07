@@ -6,13 +6,13 @@
 /*   By: jinzhang <jinzhang@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/05 16:58:24 by jinzhang          #+#    #+#             */
-/*   Updated: 2025/05/07 14:06:19 by jinzhang         ###   ########.fr       */
+/*   Updated: 2025/05/07 16:42:27 by jinzhang         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "printf.h"
 
-int	ft_putbase(unsigned long num, int base, char *str)
+int	ft_putbase(unsigned long num, unsigned long base, char *str)
 {
 	int	index;
 	int	i;

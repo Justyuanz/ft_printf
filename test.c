@@ -6,12 +6,14 @@
 /*   By: jinzhang <jinzhang@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/07 14:05:45 by jinzhang          #+#    #+#             */
-/*   Updated: 2025/05/07 14:05:46 by jinzhang         ###   ########.fr       */
+/*   Updated: 2025/05/07 16:52:22 by jinzhang         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 
 #include <stdio.h>
+#include <limits.h>
+#include "printf.h"
 
 int	main(void)
 {
@@ -54,7 +56,7 @@ int	main(void)
 	printf("Returns: ft_printf = %d, printf = %d\n\n", mine_return, std_return);
 
     mine_return = ft_printf("Mine: Empty string: '%s'\n", "");
-    std_return  = printf("Std : Empty string: '%s'\n", "");
+    //std_return  = printf("Std : Empty string: '%s'\n", "");
     printf("Empty string returns: mine=%d, std=%d\n\n", mine_return, std_return);
 	
 	mine_return = ft_printf("[c:%c],[s:%s],[d:%d],[i:%i],[ui:%u],[hex::%x],[HEX:%X],[ptr:%p],[%%:%%],[min:%i],[max:%i]\n", a, b, c, d, e,f,g,b, INT_MIN, INT_MAX);

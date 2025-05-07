@@ -6,12 +6,11 @@
 /*   By: jinzhang <jinzhang@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/03 10:18:09 by jinzhang          #+#    #+#             */
-/*   Updated: 2025/05/07 14:08:46 by jinzhang         ###   ########.fr       */
+/*   Updated: 2025/05/07 16:51:30 by jinzhang         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "printf.h"
-#include <limits.h>
 
 int	isset(char c)
 {
@@ -42,7 +41,6 @@ int	loop_str(const char *s, va_list *ap)
 {
 	int	i;
 	int	count;
-	int	res;
 
 	i = 0;
 	count = 0;
@@ -70,7 +68,9 @@ int	ft_printf(const char *format, ...)
 	int count;
 	
 	i = 0;
-	count = 0;
+	count = 0;	
+	va_list ap;
+	va_start(ap, format);
 	if (!format || !format[0])//if(format) input validation
 		return (-1);
 	while(format[i])
@@ -83,8 +83,6 @@ int	ft_printf(const char *format, ...)
 			return (-1);
 		i++;
 	}
-	va_list ap;
-	va_start(ap, format);
 	count = loop_str(format, &ap);//call a function to loop through the string
 	va_end(ap);
 	return (count);
