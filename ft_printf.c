@@ -6,7 +6,7 @@
 /*   By: jinzhang <jinzhang@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/03 10:18:09 by jinzhang          #+#    #+#             */
-/*   Updated: 2025/05/06 23:58:23 by jinzhang         ###   ########.fr       */
+/*   Updated: 2025/05/07 10:48:46 by jinzhang         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,26 +92,35 @@ int	main(void)
 	int null1 = ft_printf("printf Null str: %s\n", NULL);
 	int z = printf("Invalid spec: %z\n");
 	int z1 = ft_printf("Invalid spec: %z\n");
+	int in = printf("%z", a);
+	int in1 = ft_printf("%z",a);
 	int per = printf("Percent: %%\n");
 	int per1 = ft_printf("Percent: %%\n");
 	int lone = printf("Lone percent: %\n");
 	int lone1 = ft_printf("Lone percent: %\n");
 	int zero = ft_printf(NULL);
 	int zero1 = ft_printf(NULL);
-	int in = printf("%z", a);
-	
-	printf("\n");
-	int in1 = ft_printf("%z",a);
+
 	ft_printf("\n");
 	printf("\n");
 	printf("ft_printf:%d\n", count);
 	printf("printf:   %d\n", count1);
-	printf("[count:%d],[null:%d],[invalid:%d],[percent:%d],[lone:%d],[zero:%d],[%%z:%i]\n", count, null, z, per, lone, zero, in1);
-	printf("[count:%d],[null:%d],[invalid:%d],[percent:%d],[lone:%d],[zero1:%d],[%%z:%i]\n", count1, null1, z1, per1, lone1, zero1, in1);
+	printf("[count:%d],[null:%d],[invalid:%d],[%%z:%i], [percent:%d],[lone:%d],[zero:%d]\n", count, null, z, in, per, lone, zero);
+	printf("[count:%d],[null:%d],[invalid:%d],[%%z:%i],[percent:%d],[lone:%d],[zero1:%d]\n", count1, null1, z1, in1, per1, lone1, zero1);
+	
+	printf("\n\n");
+	
+	ft_printf("%x\n", 0);                  // 0
+	ft_printf("%X\n", 305441741);         // 1234ABCD
+	ft_printf("%u\n", UINT_MAX);          // 4294967295
+	ft_printf("Address: %p\n", NULL);     // 0x0
+	ft_printf("Address: %p\n", &main);    // actual address
+
+	printf("\n\n");
 	
 	ft_printf("Just percent: %%\n");          // should print: Just percent: %
 	ft_printf("Unknown: %k\n");               // should print: Unknown:
 	ft_printf("Pointer NULL: %p\n", NULL);    // should print: Pointer NULL: 0x0
 	ft_printf("Zero: %u %d\n", 0u, 0);        // should print: 0 0
-	ft_printf("Neg unsigned: %u\n", -1);      // should print: 4294967295
+	ft_printf("Neg unsigned: %u\n", INT_MIN);      // should print: 4294967295
 }

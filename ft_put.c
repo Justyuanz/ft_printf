@@ -6,7 +6,7 @@
 /*   By: jinzhang <jinzhang@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/03 10:17:59 by jinzhang          #+#    #+#             */
-/*   Updated: 2025/05/06 23:32:26 by jinzhang         ###   ########.fr       */
+/*   Updated: 2025/05/07 10:30:02 by jinzhang         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,21 +55,6 @@ int	ft_putnbr(int n)
 	i++;
 	return (i);
 }
-int ft_putuint(unsigned int u)
-{
-	int	i;
-	unsigned long	p;
-	char result;
 
-	p = (unsigned long)u;
-	i = 0;
-	result = 0;
-	if (p > 9)
-		i += ft_putuint(p / 10);
-	result = p % 10 + '0';
-	write(1, &result, 1);
-	i++;
-	return (i);
-}
 
 
