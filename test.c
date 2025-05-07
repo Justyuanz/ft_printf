@@ -6,14 +6,14 @@
 /*   By: jinzhang <jinzhang@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/07 14:05:45 by jinzhang          #+#    #+#             */
-/*   Updated: 2025/05/07 16:52:22 by jinzhang         ###   ########.fr       */
+/*   Updated: 2025/05/07 23:23:00 by jinzhang         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 
 #include <stdio.h>
 #include <limits.h>
-#include "printf.h"
+#include "ft_printf.h"
 
 int	main(void)
 {

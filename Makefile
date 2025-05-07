@@ -6,7 +6,7 @@
 #    By: jinzhang <jinzhang@student.hive.fi>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/04/17 10:55:26 by jinzhang          #+#    #+#              #
-#    Updated: 2025/05/07 19:13:43 by jinzhang         ###   ########.fr        #
+#    Updated: 2025/05/07 23:19:49 by jinzhang         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,7 +16,7 @@ CFLAGS = -Wall -Wextra -Werror
 AR = ar rcs
 RM = rm -f
 
-HEADER = printf.h
+HEADER = ft_printf.h
 LIBFT_DIR = libft
 LIBFT_A = $(LIBFT_DIR)/libft.a
 SRCS = ft_printf.c ft_put.c ft_basenbr.c

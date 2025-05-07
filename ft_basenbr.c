@@ -6,11 +6,11 @@
 /*   By: jinzhang <jinzhang@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/05 16:58:24 by jinzhang          #+#    #+#             */
-/*   Updated: 2025/05/07 16:42:27 by jinzhang         ###   ########.fr       */
+/*   Updated: 2025/05/07 23:20:49 by jinzhang         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "printf.h"
+#include "ft_printf.h"
 
 int	ft_putbase(unsigned long num, unsigned long base, char *str)
 {

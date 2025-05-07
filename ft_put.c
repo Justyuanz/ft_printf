@@ -6,11 +6,11 @@
 /*   By: jinzhang <jinzhang@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/03 10:17:59 by jinzhang          #+#    #+#             */
-/*   Updated: 2025/05/07 16:41:50 by jinzhang         ###   ########.fr       */
+/*   Updated: 2025/05/07 23:21:03 by jinzhang         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "printf.h"
+#include "ft_printf.h"
 
 int	ft_putchar(int a)
 {
