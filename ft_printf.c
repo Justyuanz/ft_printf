@@ -6,12 +6,17 @@
 /*   By: jinzhang <jinzhang@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/03 10:18:09 by jinzhang          #+#    #+#             */
-/*   Updated: 2025/05/07 10:48:46 by jinzhang         ###   ########.fr       */
+/*   Updated: 2025/05/07 14:08:46 by jinzhang         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "printf.h"
 #include <limits.h>
+
+int	isset(char c)
+{
+	return(c == 'c' || c == 's' || c == 'p' || c == 'd' || c == 'i' || c == 'u' || c == 'x' || c == 'X');
+}
 int	find_specs(char c, va_list *ap)
 {
 	if (c == 'c')
@@ -30,7 +35,7 @@ int	find_specs(char c, va_list *ap)
 		return (ft_putaddress(va_arg(*ap, void *))); //who are you, pointer?
 	if (c == '%')
 		return (write (1, "%", 1));
-	return (-1);
+	return (0);
 }
 
 int	loop_str(const char *s, va_list *ap)
@@ -53,9 +58,7 @@ int	loop_str(const char *s, va_list *ap)
 			i++;
 			if(s[i] == '\0')
 				break;
-			res = find_specs(s[i], ap);//call a function to deal with spec
-			if(res != -1)
-				count += res;
+			count += find_specs(s[i], ap);//call a function to deal with spec
 		}
 		i++;
 	}
@@ -63,64 +66,26 @@ int	loop_str(const char *s, va_list *ap)
 }
 int	ft_printf(const char *format, ...)
 {
-	int	count;
-
-	if (!format)//if(format) input validation
-		return (-1);
+	int	i;
+	int count;
+	
+	i = 0;
 	count = 0;
+	if (!format || !format[0])//if(format) input validation
+		return (-1);
+	while(format[i])
+	{
+		if (format[i] == '%' && format[i + 1] == '%')
+		{
+			i++;
+		}
+		else if (format[i] == '%' && (!isset(format[i + 1]) || format[i + 1] == '\0'))
+			return (-1);
+		i++;
+	}
 	va_list ap;
 	va_start(ap, format);
 	count = loop_str(format, &ap);//call a function to loop through the string
 	va_end(ap);
 	return (count);
-}
-#include <stdio.h>
-int	main(void)
-{
-	char a = 'A';
-	char *b= NULL;
-	int	c = 0;
-	int	d = -420;
-	unsigned int e = INT_MIN;
-	unsigned int f = 255;
-	unsigned int g = 27544355;
-
-	int count = ft_printf("[char:%c],[string:%s],[decimal:%d],[int:%i],[unsigned int:%u],[hex::%x],[hexup:%X],[pointer:%p],[%%:%%],[int_min:%i],[int_max:%i],[%%%z%%]\n", a, b, c, d, e,f,g,b, INT_MIN, INT_MAX);
-	int count1 = printf("[char:%c],[string:%s],[decimal:%d],[int:%i],[unsigned int:%u],[hex::%x],[hexup:%X],[pointer:%p],[%%:%%],[int_min:%i],[int_max:%i],[%%%z%%]\n", a, b, c, d, e,f,g,b, INT_MIN, INT_MAX);
-	//ft_printf("Null str: %s | Invalid spec: %z | Percent: %% | Lone percent: %\n", NULL);
-	int null = printf("printf Null str: %s\n", NULL);
-	int null1 = ft_printf("printf Null str: %s\n", NULL);
-	int z = printf("Invalid spec: %z\n");
-	int z1 = ft_printf("Invalid spec: %z\n");
-	int in = printf("%z", a);
-	int in1 = ft_printf("%z",a);
-	int per = printf("Percent: %%\n");
-	int per1 = ft_printf("Percent: %%\n");
-	int lone = printf("Lone percent: %\n");
-	int lone1 = ft_printf("Lone percent: %\n");
-	int zero = ft_printf(NULL);
-	int zero1 = ft_printf(NULL);
-
-	ft_printf("\n");
-	printf("\n");
-	printf("ft_printf:%d\n", count);
-	printf("printf:   %d\n", count1);
-	printf("[count:%d],[null:%d],[invalid:%d],[%%z:%i], [percent:%d],[lone:%d],[zero:%d]\n", count, null, z, in, per, lone, zero);
-	printf("[count:%d],[null:%d],[invalid:%d],[%%z:%i],[percent:%d],[lone:%d],[zero1:%d]\n", count1, null1, z1, in1, per1, lone1, zero1);
-	
-	printf("\n\n");
-	
-	ft_printf("%x\n", 0);                  // 0
-	ft_printf("%X\n", 305441741);         // 1234ABCD
-	ft_printf("%u\n", UINT_MAX);          // 4294967295
-	ft_printf("Address: %p\n", NULL);     // 0x0
-	ft_printf("Address: %p\n", &main);    // actual address
-
-	printf("\n\n");
-	
-	ft_printf("Just percent: %%\n");          // should print: Just percent: %
-	ft_printf("Unknown: %k\n");               // should print: Unknown:
-	ft_printf("Pointer NULL: %p\n", NULL);    // should print: Pointer NULL: 0x0
-	ft_printf("Zero: %u %d\n", 0u, 0);        // should print: 0 0
-	ft_printf("Neg unsigned: %u\n", INT_MIN);      // should print: 4294967295
 }
