@@ -6,7 +6,7 @@
 /*   By: jinzhang <jinzhang@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/03 10:18:09 by jinzhang          #+#    #+#             */
-/*   Updated: 2025/05/08 15:30:38 by jinzhang         ###   ########.fr       */
+/*   Updated: 2025/05/09 14:37:11 by jinzhang         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,27 +77,21 @@ int	ft_printf(const char *format, ...)
 	va_list	ap;
 
 	i = 0;
-	count = 0;
 	va_start(ap, format);
 	if (!format)
 		return (-1);
 	while (format[i])
 	{
 		if (format[i] == '%' && format[i + 1] == '%')
-		{
 			i++;
-		}
 		else if (format[i] == '%' && (!isset(format[i + 1])
 				|| format[i + 1] == '\0'))
 			return (-1);
 		i++;
 	}
 	count = loop_str(format, &ap);
-	if (count == -1)
-	{
-		va_end(ap);
-		return (-1);
-	}
 	va_end(ap);
+	if (count == -1)
+		return (-1);
 	return (count);
 }

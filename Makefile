@@ -6,7 +6,7 @@
 #    By: jinzhang <jinzhang@student.hive.fi>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/04/17 10:55:26 by jinzhang          #+#    #+#              #
-#    Updated: 2025/05/07 23:19:49 by jinzhang         ###   ########.fr        #
+#    Updated: 2025/05/09 14:17:53 by jinzhang         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -26,7 +26,7 @@ all: $(NAME)
 
 $(LIBFT_A):
 	make -C $(LIBFT_DIR)
-	
+
 $(NAME): $(OBJS) $(LIBFT_A)
 	cp $(LIBFT_A) $(NAME)
 	$(AR) $(NAME) $(OBJS)
