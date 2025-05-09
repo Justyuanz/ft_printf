@@ -6,7 +6,7 @@
 /*   By: jinzhang <jinzhang@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/03 10:17:46 by jinzhang          #+#    #+#             */
-/*   Updated: 2025/05/08 11:59:44 by jinzhang         ###   ########.fr       */
+/*   Updated: 2025/05/09 16:18:21 by jinzhang         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,6 @@ int	ft_printf(const char *format, ...);
 int	isset(char c);
 int	loop_str(const char *s, va_list *ap);
 int	find_specs(char c, va_list *ap);
-int	ft_putchar(int a);
 int	ft_putstr(char *s);
 int	ft_putnbr(int n);
 int	ft_putbase(unsigned long num, unsigned long base, char *str);

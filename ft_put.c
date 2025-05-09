@@ -6,16 +6,11 @@
 /*   By: jinzhang <jinzhang@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/03 10:17:59 by jinzhang          #+#    #+#             */
-/*   Updated: 2025/05/09 14:24:21 by jinzhang         ###   ########.fr       */
+/*   Updated: 2025/05/09 16:17:36 by jinzhang         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
-
-int	ft_putchar(int a)
-{
-	return (write(1, &a, 1));
-}
 
 int	ft_putstr(char *s)
 {

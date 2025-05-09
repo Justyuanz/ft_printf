@@ -6,13 +6,11 @@
 /*   By: jinzhang <jinzhang@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/28 20:23:18 by jinzhang          #+#    #+#             */
-/*   Updated: 2025/04/28 20:23:42 by jinzhang         ###   ########.fr       */
+/*   Updated: 2025/04/29 16:18:24 by jinzhang         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-
-// The original strdup segfaults when passing NULL
 
 char	*ft_strdup(const char *s1)
 {

@@ -6,11 +6,11 @@
 #    By: jinzhang <jinzhang@student.hive.fi>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/04/17 10:55:26 by jinzhang          #+#    #+#              #
-#    Updated: 2025/05/09 14:17:53 by jinzhang         ###   ########.fr        #
+#    Updated: 2025/05/09 16:05:17 by jinzhang         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME	= libftprintf.a
+NAME = libftprintf.a
 COMPILER = cc
 CFLAGS = -Wall -Wextra -Werror
 AR = ar rcs
@@ -39,9 +39,9 @@ clean:
 	make clean -C $(LIBFT_DIR)
 
 fclean: clean
-	$(RM) $(NAME) 
+	$(RM) $(NAME)
 	make fclean -C $(LIBFT_DIR)
-	
+
 re: fclean all
 
-.PHONY: all clean fclean re 
+.PHONY: all clean fclean re

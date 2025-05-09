@@ -6,16 +6,11 @@
 /*   By: jinzhang <jinzhang@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/28 20:39:20 by jinzhang          #+#    #+#             */
-/*   Updated: 2025/04/28 20:39:29 by jinzhang         ###   ########.fr       */
+/*   Updated: 2025/04/29 16:16:43 by jinzhang         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-
-/*
-make it a habit to check every parameter?
-use strdup to allocate an empty string so the freeing would be safe later.
-*/
 
 char	*ft_substr(char const *s, unsigned int start, size_t len)
 {

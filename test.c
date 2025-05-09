@@ -6,13 +6,14 @@
 /*   By: jinzhang <jinzhang@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/07 14:05:45 by jinzhang          #+#    #+#             */
-/*   Updated: 2025/05/08 11:42:24 by jinzhang         ###   ########.fr       */
+/*   Updated: 2025/05/09 16:03:42 by jinzhang         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 
 #include <stdio.h>
 #include <limits.h>
+#include <fcntl.h>
 #include "ft_printf.h"
 
 int	main(void)
@@ -98,4 +99,18 @@ int	main(void)
     mine_return = ft_printf("Mine: Lone percent at end: %\n");
     std_return  = printf("Std : Lone percent at end: %\n");
     printf("Returns: mine=%d, std=%d\n\n", mine_return, std_return);
+
+	 // Close stdout to simulate a write error
+	 close(1);
+
+	 // Call ft_printf, which should now fail to write
+	 int ret = ft_printf("Hello, world!\n");
+ 
+	 // Print the result to stderr
+	 if (ret == -1) {
+		 fprintf(stderr, "ft_printf returned -1 on write error as expected.\n");
+	 } else {
+		 fprintf(stderr, "ft_printf did NOT return -1 (returned %d).\n", ret);
+	 }
+ 
 }

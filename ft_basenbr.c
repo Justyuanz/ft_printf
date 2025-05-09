@@ -6,7 +6,7 @@
 /*   By: jinzhang <jinzhang@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/05 16:58:24 by jinzhang          #+#    #+#             */
-/*   Updated: 2025/05/09 14:37:45 by jinzhang         ###   ########.fr       */
+/*   Updated: 2025/05/09 16:16:54 by jinzhang         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,7 @@ int	ft_putaddress(void *ptr)
 	if (write(1, "0x", 2) == -1)
 		return (-1);
 	i = ft_puthex((unsigned long)ptr) + 2;
-	if(i == 1)
+	if (i == 1)
 		return (-1);
 	return (i);
 }

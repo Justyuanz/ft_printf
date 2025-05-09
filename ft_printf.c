@@ -6,11 +6,12 @@
 /*   By: jinzhang <jinzhang@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/03 10:18:09 by jinzhang          #+#    #+#             */
-/*   Updated: 2025/05/09 14:37:11 by jinzhang         ###   ########.fr       */
+/*   Updated: 2025/05/09 16:20:02 by jinzhang         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
+#include "libft/libft.h"
 
 int	isset(char c)
 {
@@ -21,7 +22,7 @@ int	isset(char c)
 int	find_specs(char c, va_list *ap)
 {
 	if (c == 'c')
-		return (ft_putchar(va_arg(*ap, int)));
+		return (ft_putchar_fd((va_arg(*ap, int)), 1));
 	if (c == 's')
 		return (ft_putstr(va_arg(*ap, char *)));
 	if (c == 'u')
@@ -41,31 +42,29 @@ int	find_specs(char c, va_list *ap)
 
 int	loop_str(const char *s, va_list *ap)
 {
-	int	i;
 	int	count;
-	int res;
+	int	res;
 
-	i = 0;
 	count = 0;
-	while (s[i])
+	while (*s)
 	{
-		if (s[i] != '%')
+		if (*s != '%')
 		{
-			if (write(1, &s[i], 1) == -1)
+			if (write(1, s, 1) == -1)
 				return (-1);
 			count++;
 		}
 		else
 		{
-			i++;
-			if (s[i] == '\0')
+			s++;
+			if (*s == '\0')
 				break ;
-			res = find_specs(s[i], ap);
-			if(res == -1)
+			res = find_specs(*s, ap);
+			if (res == -1)
 				return (-1);
 			count += res;
 		}
-		i++;
+		s++;
 	}
 	return (count);
 }

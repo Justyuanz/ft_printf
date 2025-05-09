@@ -6,18 +6,11 @@
 /*   By: jinzhang <jinzhang@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/28 20:37:12 by jinzhang          #+#    #+#             */
-/*   Updated: 2025/04/28 20:38:16 by jinzhang         ###   ########.fr       */
+/*   Updated: 2025/04/30 18:47:43 by jinzhang         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-
-/*
-When allocating memory for the substring,
-you're using sizeof(char const *) instead of sizeof(char). This will allocate
-more memory than needed. The correct size is sizeof(char),
-not sizeof(char const *).
-*/
 
 static int	ft_isset(char c, char const *set)
 {
