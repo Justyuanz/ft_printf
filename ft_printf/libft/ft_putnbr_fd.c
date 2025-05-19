@@ -1,56 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_put.c                                           :+:      :+:    :+:   */
+/*   ft_putnbr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jinzhang <jinzhang@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/05/03 10:17:59 by jinzhang          #+#    #+#             */
-/*   Updated: 2025/05/13 20:12:22 by jinzhang         ###   ########.fr       */
+/*   Created: 2025/04/28 19:13:17 by jinzhang          #+#    #+#             */
+/*   Updated: 2025/04/28 19:46:08 by jinzhang         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "libft.h"
 
-int	ft_putstr(char *s)
+void	ft_putnbr_fd(int n, int fd)
 {
-	int	i;
-
-	i = 0;
-	if (!s)
-		s = "(null)";
-	while (s[i])
-	{
-		if (write(1, &s[i], 1) == -1)
-			return (-1);
-		i++;
-	}
-	return (i);
-}
-
-int	ft_putnbr(int n)
-{
-	int		i;
 	long	p;
 	char	result;
 
 	p = (long)n;
-	i = 0;
 	result = 0;
 	if (p < 0)
 	{
-		if (write(1, "-", 1) == -1)
-			return (-1);
-		i++;
 		p = -p;
+		write(fd, "-", 1);
 	}
 	if (p > 9)
 	{
-		i += ft_putnbr(p / 10);
+		ft_putnbr_fd(p / 10, fd);
 	}
 	result = p % 10 + '0';
-	if (write(1, &result, 1) == -1)
-		return (-1);
-	i++;
-	return (i);
+	write(fd, &result, 1);
 }

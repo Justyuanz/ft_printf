@@ -6,7 +6,7 @@
 #    By: jinzhang <jinzhang@student.hive.fi>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/04/17 10:55:26 by jinzhang          #+#    #+#              #
-#    Updated: 2025/05/13 20:14:43 by jinzhang         ###   ########.fr        #
+#    Updated: 2025/05/09 16:05:17 by jinzhang         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -21,7 +21,6 @@ LIBFT_DIR = libft
 LIBFT_A = $(LIBFT_DIR)/libft.a
 SRCS = ft_printf.c ft_put.c ft_basenbr.c
 OBJS = $(SRCS:.c=.o)
-.SECONDARY: ${OBJS}
 
 all: $(NAME)
 
