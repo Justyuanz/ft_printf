@@ -6,7 +6,7 @@
 /*   By: jinzhang <jinzhang@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/03 10:17:59 by jinzhang          #+#    #+#             */
-/*   Updated: 2025/05/13 20:12:22 by jinzhang         ###   ########.fr       */
+/*   Updated: 2025/05/19 22:55:32 by jinzhang         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,15 +28,13 @@ int	ft_putstr(char *s)
 	return (i);
 }
 
-int	ft_putnbr(int n)
+int	ft_putnbr(long p)
 {
 	int		i;
-	long	p;
+	int		tmp;
 	char	result;
 
-	p = (long)n;
 	i = 0;
-	result = 0;
 	if (p < 0)
 	{
 		if (write(1, "-", 1) == -1)
@@ -46,7 +44,10 @@ int	ft_putnbr(int n)
 	}
 	if (p > 9)
 	{
-		i += ft_putnbr(p / 10);
+		tmp = ft_putnbr(p / 10);
+		if (tmp == -1)
+			return (-1);
+		i += tmp;
 	}
 	result = p % 10 + '0';
 	if (write(1, &result, 1) == -1)

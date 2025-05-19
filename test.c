@@ -6,7 +6,7 @@
 /*   By: jinzhang <jinzhang@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/07 14:05:45 by jinzhang          #+#    #+#             */
-/*   Updated: 2025/05/09 16:03:42 by jinzhang         ###   ########.fr       */
+/*   Updated: 2025/05/19 23:26:32 by jinzhang         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,7 +81,7 @@ int	main(void)
     printf("Empty format returns: mine=%d, std=%d\n\n", mine_return, std_return);
 
 	mine_return = ft_printf(NULL);
-    //std_return  = printf(NULL);
+    std_return  = printf(NULL);
     printf("Null format returns: mine=%d, std=%d\n\n", mine_return, std_return);
 
     mine_return = ft_printf("Mine: %%%""%%\n");
